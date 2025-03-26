@@ -4,6 +4,8 @@ import { NotFountPage } from "../pages";
 export const createRouter = (routes) => {
   const { subscribe, notify } = createObserver();
 
+  const getPath = () => window.location.pathname;
+
   const getTarget = () => routes[window.location.pathname] ?? NotFountPage;
 
   const push = (path) => {
@@ -13,5 +15,5 @@ export const createRouter = (routes) => {
 
   window.addEventListener("popstate", () => notify());
 
-  return { push, subscribe, getTarget };
+  return { push, subscribe, getTarget, getPath };
 };

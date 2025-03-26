@@ -10,7 +10,7 @@ const router = createRouter({
 });
 
 const render = () => {
-  const path = window.location.pathname;
+  const path = router.getPath();
   const { loggedIn } = store.getState();
 
   if (path === "/login" && loggedIn) {
