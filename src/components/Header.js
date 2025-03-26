@@ -1,3 +1,4 @@
+import { store } from "../store";
 import { NAV_PATH } from "../constants";
 
 const getActiveLink = (path) => {
@@ -5,7 +6,8 @@ const getActiveLink = (path) => {
   return currentPath === path ? "text-blue-600 font-bold" : "text-gray-600";
 };
 
-export const Header = ({ loggedIn }) => {
+export const Header = () => {
+  const { loggedIn } = store.getState();
   const navList = loggedIn
     ? [NAV_PATH.profile, NAV_PATH.logout]
     : [NAV_PATH.login];
