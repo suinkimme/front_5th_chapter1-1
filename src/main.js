@@ -34,7 +34,7 @@ const handleFormSubmit = (e) => {
 
   if (targetId === "login-form") {
     const username = document.getElementById("username").value.trim();
-    userStorage.set({ username, bio: "", email: "" });
+    userStorage.set({ username, email: "", bio: "" });
     store.setState({
       user: userStorage.get(),
       loggedIn: true,
