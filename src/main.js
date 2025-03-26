@@ -3,21 +3,23 @@ import { LoginPage, MainPage, ProfilePage } from "./pages";
 import { store } from "./store";
 
 const router = createRouter({
-  "/": MainPage(),
-  "/login": LoginPage(),
-  "/profile": ProfilePage(),
+  "/": MainPage,
+  "/login": LoginPage,
+  "/profile": ProfilePage,
 });
 
 const render = () => {
+  const path = window.location.pathname;
   const { loggedIn } = store.getState();
 
-  if (router.getTarget() === LoginPage() && loggedIn) {
+  if (path === "/login" && loggedIn) {
     router.push("/");
     return;
   }
 
   const $root = document.getElementById("root");
-  $root.innerHTML = router.getTarget();
+  const template = router.getTarget();
+  $root.innerHTML = template();
 };
 
 const handleFormSubmit = (e) => {
