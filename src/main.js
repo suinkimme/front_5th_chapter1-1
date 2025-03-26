@@ -1,13 +1,16 @@
-import { createRouter } from "./lib/createRouter";
+// import { createRouter } from "./lib/createRouter";
+import { createHashRouter } from "./lib/createHashRouter";
 import { LoginPage, MainPage, ProfilePage } from "./pages";
 import { store } from "./store";
 import { userStorage } from "./storage";
 
-const router = createRouter({
+const routes = {
   "/": MainPage,
   "/login": LoginPage,
   "/profile": ProfilePage,
-});
+};
+
+const router = createHashRouter(routes);
 
 const render = () => {
   const path = router.getPath();
