@@ -31,6 +31,7 @@ const render = () => {
 const handleFormSubmit = (e) => {
   e.preventDefault();
   const targetId = e.target.id;
+  const formData = new FormData(e.target);
 
   if (targetId === "login-form") {
     const username = document.getElementById("username").value.trim();
@@ -39,6 +40,20 @@ const handleFormSubmit = (e) => {
       user: userStorage.get(),
       loggedIn: true,
     });
+
+    return;
+  }
+
+  if (targetId === "profile-form") {
+    const username = formData.get("username").trim();
+    const email = formData.get("email").trim();
+    const bio = formData.get("bio").trim();
+    userStorage.set({ username, email, bio });
+    store.setState({
+      user: userStorage.get(),
+    });
+
+    return;
   }
 };
 
