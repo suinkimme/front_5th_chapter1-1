@@ -1,4 +1,4 @@
-import { createRouter } from "./lib/createRouter";
+import { createRouter } from "./lib/createRouter.js";
 import { LoginPage, MainPage, ProfilePage } from "./pages";
 import { store } from "./store";
 import { userStorage } from "./storage";

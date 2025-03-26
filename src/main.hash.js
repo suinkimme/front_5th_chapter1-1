@@ -1,4 +1,4 @@
-import { createHashRouter } from "./lib/createHashRouter";
+import { createHashRouter } from "./lib/createHashRouter.js";
 import { LoginPage, MainPage, ProfilePage } from "./pages";
 import { store } from "./store";
 import { userStorage } from "./storage";
