@@ -1,5 +1,4 @@
 import { createRouter } from "./lib/createRouter";
-import { createHashRouter } from "./lib/createHashRouter";
 import { LoginPage, MainPage, ProfilePage } from "./pages";
 import { store } from "./store";
 import { userStorage } from "./storage";
@@ -10,10 +9,7 @@ const routes = {
   "/profile": ProfilePage,
 };
 
-const router =
-  window.location.pathname === "/index.hash.html"
-    ? createHashRouter(routes)
-    : createRouter(routes);
+const router = createRouter(routes);
 
 const render = () => {
   const path = router.getPath();

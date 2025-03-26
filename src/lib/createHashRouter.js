@@ -12,7 +12,7 @@ export const createHashRouter = (routes) => {
   };
 
   const push = (path) => {
-    window.location.hash = path;
+    window.location.hash = `#${path}`;
   };
 
   window.addEventListener("hashchange", () => notify());
