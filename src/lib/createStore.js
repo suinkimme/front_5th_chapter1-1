@@ -1,4 +1,4 @@
-import { createObserver } from "./createObserver";
+import { createObserver } from "./createObserver.js";
 
 export const createStore = (initialState) => {
   const { subscribe, notify } = createObserver();

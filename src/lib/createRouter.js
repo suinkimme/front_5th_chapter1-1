@@ -1,4 +1,4 @@
-import { createObserver } from "./createObserver";
+import { createObserver } from "./createObserver.js";
 import { NotFountPage } from "../pages";
 
 export const createRouter = (routes) => {
