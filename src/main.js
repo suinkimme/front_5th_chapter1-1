@@ -46,9 +46,23 @@ const handleAnchorClick = (e) => {
   const anchor = e.target.closest("a");
   if (anchor) {
     e.preventDefault();
+
+    if (anchor.id === "logout") {
+      handleLogout();
+      return;
+    }
+
     const path = anchor.href.replace(window.location.origin, "");
     router.push(path);
   }
+};
+
+const handleLogout = () => {
+  userStorage.reset();
+  store.setState({
+    user: userStorage.get(),
+    loggedIn: false,
+  });
 };
 
 const init = () => {
