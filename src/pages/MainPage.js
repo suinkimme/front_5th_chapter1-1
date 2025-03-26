@@ -1,10 +1,11 @@
-import { Header } from "../components";
+import { Header, Footer } from "../components";
 
 export const MainPage = () => {
   return /*HTML*/ `
     <div class="bg-gray-100 min-h-screen flex justify-center">
       <div class="max-w-md w-full">
         ${Header({ loggedIn: false })}
+        
         <main class="p-4">
           <div class="mb-4 bg-white rounded-lg shadow p-4">
             <textarea class="w-full p-2 border rounded" placeholder="무슨 생각을 하고 계신가요?"></textarea>
@@ -95,9 +96,7 @@ export const MainPage = () => {
           </div>
         </main>
 
-        <footer class="bg-gray-200 p-4 text-center">
-          <p>&copy; 2024 항해플러스. All rights reserved.</p>
-        </footer>
+        ${Footer()}
       </div>
     </div>
   `;
