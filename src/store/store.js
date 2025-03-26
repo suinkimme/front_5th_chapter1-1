@@ -3,5 +3,5 @@ import { userStorage } from "../storage";
 
 export const store = createStore({
   user: userStorage.get(),
-  loggedIn: false,
+  loggedIn: Boolean(userStorage.get()),
 });
