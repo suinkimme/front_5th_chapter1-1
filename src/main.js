@@ -78,6 +78,7 @@ const handleLogout = () => {
     user: userStorage.get(),
     loggedIn: false,
   });
+  router.push("/login");
 };
 
 const init = () => {
