@@ -34,18 +34,20 @@ const handleFormSubmit = (e) => {
   }
 };
 
+const handleAnchorClick = (e) => {
+  const anchor = e.target.closest("a");
+  if (anchor) {
+    e.preventDefault();
+    const path = anchor.href.replace(window.location.origin, "");
+    router.push(path);
+  }
+};
+
 const init = () => {
   router.subscribe(render);
   store.subscribe(render);
 
-  document.body.addEventListener("click", (e) => {
-    const anchor = e.target.closest("a");
-    if (anchor) {
-      e.preventDefault();
-      const path = anchor.href.replace(window.location.origin, "");
-      router.push(path);
-    }
-  });
+  document.body.addEventListener("click", handleAnchorClick);
   document.body.addEventListener("submit", handleFormSubmit);
 
   render();
