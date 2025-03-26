@@ -1,7 +1,7 @@
 import { createRouter } from "./lib/createRouter.js";
-import { LoginPage, MainPage, ProfilePage } from "./pages";
-import { store } from "./store";
-import { userStorage } from "./storage";
+import { LoginPage, MainPage, ProfilePage } from "./pages/index.js";
+import { store } from "./store/index.js";
+import { userStorage } from "./storage/index.js";
 
 const routes = {
   "/": MainPage,

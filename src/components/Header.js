@@ -1,5 +1,5 @@
-import { store } from "../store";
-import { NAV_PATH } from "../constants";
+import { store } from "../store/index.js";
+import { NAV_PATH } from "../constants/index.js";
 
 const getActiveLink = (path) => {
   const currentPath =

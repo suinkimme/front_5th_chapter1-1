@@ -1,5 +1,5 @@
-import { createStore } from "../lib";
-import { userStorage } from "../storage";
+import { createStore } from "../lib/index.js";
+import { userStorage } from "../storage/index.js";
 
 export const store = createStore({
   user: userStorage.get(),
