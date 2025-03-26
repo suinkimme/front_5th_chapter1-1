@@ -1,6 +1,9 @@
 import { Header, Footer } from "../components";
+import { store } from "../store";
 
 export const ProfilePage = () => {
+  const { username, email, bio } = store.getState().user;
+
   return /*HTML*/ `
     <div id="root">
       <div class="bg-gray-100 min-h-screen flex justify-center">
@@ -23,7 +26,7 @@ export const ProfilePage = () => {
                     type="text"
                     id="username"
                     name="username"
-                    value="홍길동"
+                    value="${username}"
                     class="w-full p-2 border rounded"
                   />
                 </div>
@@ -37,7 +40,7 @@ export const ProfilePage = () => {
                     type="email"
                     id="email"
                     name="email"
-                    value="hong@example.com"
+                    value="${email}"
                     class="w-full p-2 border rounded"
                   />
                 </div>
@@ -52,9 +55,7 @@ export const ProfilePage = () => {
                     name="bio"
                     rows="4"
                     class="w-full p-2 border rounded"
-                  >
-  안녕하세요, 항해플러스에서 열심히 공부하고 있는 홍길동입니다.</textarea
-                  >
+                  >${bio}</textarea>
                 </div>
                 <button
                   type="submit"
