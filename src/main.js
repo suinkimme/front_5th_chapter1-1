@@ -1,6 +1,7 @@
 import { createRouter } from "./lib/createRouter";
 import { LoginPage, MainPage, ProfilePage } from "./pages";
 import { store } from "./store";
+import { userStorage } from "./storage";
 
 const router = createRouter({
   "/": MainPage,
@@ -17,6 +18,11 @@ const render = () => {
     return;
   }
 
+  if (path === "/profile" && !loggedIn) {
+    router.push("/login");
+    return;
+  }
+
   const $root = document.getElementById("root");
   const template = router.getTarget();
   $root.innerHTML = template();
@@ -27,8 +33,10 @@ const handleFormSubmit = (e) => {
   const targetId = e.target.id;
 
   if (targetId === "login-form") {
-    // const username = document.getElementById("username").value.trim();
+    const username = document.getElementById("username").value.trim();
+    userStorage.set({ username, bio: "", email: "" });
     store.setState({
+      user: userStorage.get(),
       loggedIn: true,
     });
   }
