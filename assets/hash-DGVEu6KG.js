@@ -1,0 +1,1 @@
+import{c,N as i,A as g,u as h,s as u,P,L as l,M as p}from"./App-BnCB8Bdq.js";const w=e=>{const{subscribe:o,notify:a}=c(),t=()=>window.location.hash.slice(1)||"/",n=()=>{const s=t();return e[s]??i},r=s=>{window.location.hash=s};return window.addEventListener("hashchange",()=>a()),{push:r,subscribe:o,getTarget:n,getPath:t}},d={"/":p,"/login":l,"/profile":P},f=w(d);g(f,u,h);
