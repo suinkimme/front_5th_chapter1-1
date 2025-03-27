@@ -17,13 +17,13 @@ const render = () => {
   const path = router.getPath();
   const { loggedIn } = store.getState();
 
-  if (path === "/login" && loggedIn) {
-    router.push("/");
+  if (path === `${BASE_URL}/login` && loggedIn) {
+    router.push(`${BASE_URL}/`);
     return;
   }
 
-  if (path === "/profile" && !loggedIn) {
-    router.push("/login");
+  if (path === `${BASE_URL}/profile` && !loggedIn) {
+    router.push(`${BASE_URL}/login`);
     return;
   }
 
@@ -82,7 +82,7 @@ const handleLogout = () => {
     user: userStorage.get(),
     loggedIn: false,
   });
-  router.push("/login");
+  router.push(`${BASE_URL}/login`);
 };
 
 const init = () => {
