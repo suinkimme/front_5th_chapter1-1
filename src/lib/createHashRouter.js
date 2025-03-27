@@ -7,7 +7,7 @@ const BASE_URL =
 export const createHashRouter = (routes) => {
   const { subscribe, notify } = createObserver();
 
-  const getPath = () => window.location.hash.slice(1) || "/";
+  const getPath = () => window.location.hash || "#/";
 
   const getTarget = () => {
     const path = getPath();
@@ -15,7 +15,7 @@ export const createHashRouter = (routes) => {
   };
 
   const push = (path) => {
-    window.location.hash = `${BASE_URL}#${path}`;
+    window.location.hash = `#${BASE_URL}${path}`;
   };
 
   window.addEventListener("hashchange", () => notify());

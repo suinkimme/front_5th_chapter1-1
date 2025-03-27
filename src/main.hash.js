@@ -7,9 +7,9 @@ const BASE_URL =
   process.env.NODE_ENV === "production" ? "/front_5th_chapter1-1" : "";
 
 const routes = {
-  [`${BASE_URL}/`]: MainPage,
-  [`${BASE_URL}/login`]: LoginPage,
-  [`${BASE_URL}/profile`]: ProfilePage,
+  [`#${BASE_URL}/`]: MainPage,
+  [`#${BASE_URL}/login`]: LoginPage,
+  [`#${BASE_URL}/profile`]: ProfilePage,
 };
 const router = createHashRouter(routes);
 
@@ -17,13 +17,13 @@ const render = () => {
   const path = router.getPath();
   const { loggedIn } = store.getState();
 
-  if (path === `${BASE_URL}/login` && loggedIn) {
-    router.push(`${BASE_URL}/`);
+  if (path === `#/login` && loggedIn) {
+    router.push(`#/`);
     return;
   }
 
-  if (path === `${BASE_URL}/profile` && !loggedIn) {
-    router.push(`${BASE_URL}/login`);
+  if (path === `#/profile` && !loggedIn) {
+    router.push(`#/login`);
     return;
   }
 
@@ -82,7 +82,7 @@ const handleLogout = () => {
     user: userStorage.get(),
     loggedIn: false,
   });
-  router.push(`${BASE_URL}/login`);
+  router.push(`#/login`);
 };
 
 const init = () => {
