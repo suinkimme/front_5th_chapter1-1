@@ -1,6 +1,5 @@
 import { store } from "../store";
-import { NAV_PATH } from "../constants";
-import { BASE_URL } from "../config";
+import { NAV_PATH, BASE_URL } from "../constants";
 
 const getActiveLink = (path) => {
   const currentPath = window.location.hash

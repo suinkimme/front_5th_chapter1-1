@@ -1,6 +1,6 @@
 import { createObserver } from "./createObserver";
 import { NotFountPage } from "../pages";
-import { BASE_URL } from "../config";
+import { BASE_URL } from "../constants";
 
 export const createRouter = (routes) => {
   const { subscribe, notify } = createObserver();
