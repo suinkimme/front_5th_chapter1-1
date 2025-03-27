@@ -1,24 +1,24 @@
-(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const n of document.querySelectorAll('link[rel="modulepreload"]'))s(n);new MutationObserver(n=>{for(const l of n)if(l.type==="childList")for(const a of l.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&s(a)}).observe(document,{childList:!0,subtree:!0});function o(n){const l={};return n.integrity&&(l.integrity=n.integrity),n.referrerPolicy&&(l.referrerPolicy=n.referrerPolicy),n.crossOrigin==="use-credentials"?l.credentials="include":n.crossOrigin==="anonymous"?l.credentials="omit":l.credentials="same-origin",l}function s(n){if(n.ep)return;n.ep=!0;const l=o(n);fetch(n.href,l)}})();const m=()=>{const t=new Set;return{subscribe:s=>t.add(s),notify:()=>t.forEach(s=>s())}},f=t=>{const{subscribe:e,notify:o}=m();let s={...t};return{getState:()=>({...s}),setState:a=>{s={...s,...a},o()},subscribe:e}},h=(t,e=window.localStorage)=>({get:()=>JSON.parse(e.getItem(t)),set:l=>e.setItem(t,JSON.stringify(l)),reset:()=>e.removeItem(t)}),r=h("user"),d=f({user:r.get(),loggedIn:!!r.get()}),c={profile:{title:"프로필",path:"/profile"},login:{title:"로그인",path:"/login"},logout:{title:"로그아웃",path:"/logout"}},b=t=>(window.location.pathname==="/index.hash.html"?window.location.hash.slice(1)||"/":window.location.pathname)===t?"text-blue-600 font-bold":"text-gray-600",p=()=>{const{loggedIn:t}=d.getState(),o=(t?[c.profile,c.logout]:[c.login]).map(s=>s.path===c.logout.path?`
+(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const n of document.querySelectorAll('link[rel="modulepreload"]'))s(n);new MutationObserver(n=>{for(const l of n)if(l.type==="childList")for(const a of l.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&s(a)}).observe(document,{childList:!0,subtree:!0});function o(n){const l={};return n.integrity&&(l.integrity=n.integrity),n.referrerPolicy&&(l.referrerPolicy=n.referrerPolicy),n.crossOrigin==="use-credentials"?l.credentials="include":n.crossOrigin==="anonymous"?l.credentials="omit":l.credentials="same-origin",l}function s(n){if(n.ep)return;n.ep=!0;const l=o(n);fetch(n.href,l)}})();const m=()=>{const t=new Set;return{subscribe:s=>t.add(s),notify:()=>t.forEach(s=>s())}},h=t=>{const{subscribe:e,notify:o}=m();let s={...t};return{getState:()=>({...s}),setState:a=>{s={...s,...a},o()},subscribe:e}},v=(t,e=window.localStorage)=>({get:()=>JSON.parse(e.getItem(t)),set:l=>e.setItem(t,JSON.stringify(l)),reset:()=>e.removeItem(t)}),r=v("user"),d=h({user:r.get(),loggedIn:!!r.get()}),c={profile:{title:"프로필",path:"/profile"},login:{title:"로그인",path:"/login"},logout:{title:"로그아웃",path:"/logout"}},p=t=>(window.location.pathname==="/index.hash.html"?window.location.hash.slice(1)||"/":window.location.pathname)===t?"text-blue-600 font-bold":"text-gray-600",g=()=>{const{loggedIn:t}=d.getState(),o=(t?[c.profile,c.logout]:[c.login]).map(s=>s.path===c.logout.path?`
         <li><a href="#" id="logout" class="text-gray-600">로그아웃</a></li>
-      `:`<li><a href="${s.path}" class="${b(s.path)}">${s.title}</a></li>`).join("");return`
+      `:`<li><a href="${s.path}" class="${p(s.path)}">${s.title}</a></li>`).join("");return`
     <header class="bg-blue-600 text-white p-4 sticky top-0">
       <h1 class="text-2xl font-bold">항해플러스</h1>
     </header>
 
     <nav class="bg-white shadow-md p-2 sticky top-14">
       <ul class="flex justify-around">
-        <li><a href="/" class="${b("/")}">홈</a></li>
+        <li><a href="/" class="${p("/")}">홈</a></li>
         ${o}
       </ul>
     </nav>
-  `},g=()=>`
+  `},f=()=>`
     <footer class="bg-gray-200 p-4 text-center">
       <p>&copy; 2024 항해플러스. All rights reserved.</p>
     </footer>
-  `,v=()=>`
+  `,x=()=>`
     <div class="bg-gray-100 min-h-screen flex justify-center">
       <div class="max-w-md w-full">
-        ${p()}
+        ${g()}
         
         <main class="p-4">
           <div class="mb-4 bg-white rounded-lg shadow p-4">
@@ -110,10 +110,10 @@
           </div>
         </main>
 
-        ${g()}
+        ${f()}
       </div>
     </div>
-  `,x=()=>`
+  `,w=()=>`
     <main class="bg-gray-100 flex items-center justify-center min-h-screen">
       <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h1 class="text-2xl font-bold text-center text-blue-600 mb-8">항해플러스</h1>
@@ -135,11 +135,11 @@
         </div>
       </div>
     </main>
-  `,w=()=>{const{username:t,email:e,bio:o}=d.getState().user;return`
+  `,y=()=>{const{username:t,email:e,bio:o}=d.getState().user;return`
     <div id="root">
       <div class="bg-gray-100 min-h-screen flex justify-center">
         <div class="max-w-md w-full">
-          ${p()}
+          ${g()}
 
           <main class="p-4">
             <div class="bg-white p-8 rounded-lg shadow-md">
@@ -198,11 +198,11 @@
             </div>
           </main>
 
-          ${g()}
+          ${f()}
         </div>
       </div>
     </div>
-  `},y=()=>`
+  `},S=()=>`
     <main class="bg-gray-100 flex items-center justify-center min-h-screen">
       <div class="bg-white p-8 rounded-lg shadow-md w-full text-center" style="max-width: 480px">
         <h1 class="text-2xl font-bold text-blue-600 mb-4">항해플러스</h1>
@@ -216,4 +216,4 @@
         </a>
       </div>
     </main>
-  `,S=t=>{const{subscribe:e,notify:o}=m(),s=()=>window.location.pathname,n=()=>t[window.location.pathname]??y,l=a=>{window.history.pushState({},"",a),o()};return window.addEventListener("popstate",()=>o()),{push:l,subscribe:e,getTarget:n,getPath:s}},P={"/":v,"/login":x,"/profile":w},i=S(P),u=()=>{const t=i.getPath(),{loggedIn:e}=d.getState();if(t==="/login"&&e){i.push("/");return}if(t==="/profile"&&!e){i.push("/login");return}const o=document.getElementById("root"),s=i.getTarget();o.innerHTML=s()},L=t=>{t.preventDefault();const e=t.target.id,o=new FormData(t.target);if(e==="login-form"){const s=o.get("username").trim();r.set({username:s,email:"",bio:""}),d.setState({user:r.get(),loggedIn:!0});return}if(e==="profile-form"){const s=o.get("username").trim(),n=o.get("email").trim(),l=o.get("bio").trim();r.set({username:s,email:n,bio:l}),d.setState({user:r.get()});return}},$=t=>{const e=t.target.closest("a");if(e){if(t.preventDefault(),e.id==="logout"){j();return}const o=e.href.replace(window.location.origin,"");i.push(o)}},j=()=>{r.reset(),d.setState({user:r.get(),loggedIn:!1}),i.push("/login")},I=()=>{i.subscribe(u),d.subscribe(u),document.body.addEventListener("click",$),document.body.addEventListener("submit",L),u()};I();
+  `,P=t=>{const{subscribe:e,notify:o}=m(),s=()=>window.location.pathname,n=()=>t[window.location.pathname]??S,l=a=>{window.history.pushState({},"",a),o()};return window.addEventListener("popstate",()=>o()),{push:l,subscribe:e,getTarget:n,getPath:s}},u="/front_5th_chapter1-1",$={[`${u}/`]:x,[`${u}/login`]:w,[`${u}/profile`]:y},i=P($),b=()=>{const t=i.getPath(),{loggedIn:e}=d.getState();if(t==="/login"&&e){i.push("/");return}if(t==="/profile"&&!e){i.push("/login");return}const o=document.getElementById("root"),s=i.getTarget();o.innerHTML=s()},L=t=>{t.preventDefault();const e=t.target.id,o=new FormData(t.target);if(e==="login-form"){const s=o.get("username").trim();r.set({username:s,email:"",bio:""}),d.setState({user:r.get(),loggedIn:!0});return}if(e==="profile-form"){const s=o.get("username").trim(),n=o.get("email").trim(),l=o.get("bio").trim();r.set({username:s,email:n,bio:l}),d.setState({user:r.get()});return}},j=t=>{const e=t.target.closest("a");if(e){if(t.preventDefault(),e.id==="logout"){I();return}const o=e.href.replace(window.location.origin,"");i.push(o)}},I=()=>{r.reset(),d.setState({user:r.get(),loggedIn:!1}),i.push("/login")},O=()=>{i.subscribe(b),d.subscribe(b),document.body.addEventListener("click",j),document.body.addEventListener("submit",L),b()};O();
