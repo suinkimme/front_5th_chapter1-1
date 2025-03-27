@@ -7,7 +7,7 @@ const BASE_URL =
 export const createRouter = (routes) => {
   const { subscribe, notify } = createObserver();
 
-  const getPath = () => window.location.pathname;
+  const getPath = () => window.location.pathname.replace(BASE_URL, "");
 
   const getTarget = () => routes[window.location.pathname] ?? NotFountPage;
 

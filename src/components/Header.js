@@ -1,11 +1,11 @@
 import { store } from "../store";
 import { NAV_PATH } from "../constants";
+import { BASE_URL } from "../config";
 
 const getActiveLink = (path) => {
-  const currentPath =
-    window.location.pathname === "/index.hash.html"
-      ? window.location.hash.slice(1) || "/"
-      : window.location.pathname;
+  const currentPath = window.location.hash
+    ? window.location.hash.slice(1) || "/"
+    : window.location.pathname.replace(BASE_URL, "") || "/";
   return currentPath === path ? "text-blue-600 font-bold" : "text-gray-600";
 };
 

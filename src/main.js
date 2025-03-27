@@ -3,13 +3,10 @@ import { LoginPage, MainPage, ProfilePage } from "./pages";
 import { store } from "./store";
 import { userStorage } from "./storage";
 
-const BASE_URL =
-  process.env.NODE_ENV === "production" ? "/front_5th_chapter1-1" : "";
-
 const routes = {
-  [`${BASE_URL}/`]: MainPage,
-  [`${BASE_URL}/login`]: LoginPage,
-  [`${BASE_URL}/profile`]: ProfilePage,
+  "/": MainPage,
+  "/login": LoginPage,
+  "/profile": ProfilePage,
 };
 
 const router = createRouter(routes);
@@ -18,13 +15,13 @@ const render = () => {
   const path = router.getPath();
   const { loggedIn } = store.getState();
 
-  if (path === `/login` && loggedIn) {
-    router.push(`/`);
+  if (path === "/login" && loggedIn) {
+    router.push("/");
     return;
   }
 
-  if (path === `/profile` && !loggedIn) {
-    router.push(`/login`);
+  if (path === "/profile" && !loggedIn) {
+    router.push("/login");
     return;
   }
 
@@ -83,7 +80,7 @@ const handleLogout = () => {
     user: userStorage.get(),
     loggedIn: false,
   });
-  router.push(`/login`);
+  router.push("/login");
 };
 
 const init = () => {
