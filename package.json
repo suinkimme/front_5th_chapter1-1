@@ -14,7 +14,7 @@
     "deploy": "gh-pages -d dist",
     "predeploy": "npm run build",
     "test": "vitest",
-    "test:basic": "vitest basic.test.js",
+    "test:basic": "vitest basic.test",
     "test:advanced": "vitest advanced",
     "test:ui": "vitest --ui",
     "test:e2e": "playwright test",

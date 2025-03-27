@@ -1,4 +1,4 @@
-import { Header, Footer } from "../components/index.js";
+import { Header, Footer } from "../components";
 
 export const MainPage = () => {
   return /*HTML*/ `

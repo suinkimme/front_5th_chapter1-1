@@ -1,5 +1,5 @@
-import { Header, Footer } from "../components/index.js";
-import { store } from "../store/index.js";
+import { Header, Footer } from "../components";
+import { store } from "../store";
 
 export const ProfilePage = () => {
   const { username, email, bio } = store.getState().user;

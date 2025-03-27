@@ -1,1 +1,1 @@
-export * from "./navigations.js";
+export * from "./navigations";

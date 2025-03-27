@@ -1,5 +1,5 @@
-import { createObserver } from "./createObserver.js";
-import { NotFountPage } from "../pages/index.js";
+import { createObserver } from "./createObserver";
+import { NotFountPage } from "../pages";
 
 export const createRouter = (routes) => {
   const { subscribe, notify } = createObserver();
