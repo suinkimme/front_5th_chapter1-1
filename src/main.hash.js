@@ -11,6 +11,4 @@ const routes = {
 };
 const router = createHashRouter(routes);
 
-window.addEventListener("DOMContentLoaded", () => {
-  App(router, store, userStorage);
-});
+App(router, store, userStorage);

@@ -12,6 +12,4 @@ const routes = {
 
 const router = createRouter(routes);
 
-window.addEventListener("DOMContentLoaded", () => {
-  App(router, store, userStorage);
-});
+App(router, store, userStorage);
