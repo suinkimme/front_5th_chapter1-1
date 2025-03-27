@@ -3,12 +3,14 @@ import { LoginPage, MainPage, ProfilePage } from "./pages";
 import { store } from "./store";
 import { userStorage } from "./storage";
 
-const routes = {
-  "/": MainPage,
-  "/login": LoginPage,
-  "/profile": ProfilePage,
-};
+const BASE_URL =
+  process.env.NODE_ENV === "production" ? "/front_5th_chapter1-1" : "";
 
+const routes = {
+  [`${BASE_URL}/`]: MainPage,
+  [`${BASE_URL}/login`]: LoginPage,
+  [`${BASE_URL}/profile`]: ProfilePage,
+};
 const router = createHashRouter(routes);
 
 const render = () => {
