@@ -1,14 +1,9 @@
 import { createHashRouter } from "./lib/createHashRouter";
-import { LoginPage, MainPage, ProfilePage } from "./pages";
-import { store } from "./store";
 import { userStorage } from "./storage";
+import { store } from "./store";
+import { ROUTES } from "./config";
 import { App } from "./App";
 
-const routes = {
-  "/": MainPage,
-  "/login": LoginPage,
-  "/profile": ProfilePage,
-};
-const router = createHashRouter(routes);
+const router = createHashRouter(ROUTES);
 
 App(router, store, userStorage);
