@@ -1,6 +1,11 @@
 import { createObserver } from "./createObserver";
 import { NotFountPage } from "../pages";
 
+/**
+ * @function createHashRouter
+ * @description 해시 기반의 SPA 라우터를 생성합니다.
+ */
+
 export const createHashRouter = (routes) => {
   const { subscribe, notify } = createObserver();
 
